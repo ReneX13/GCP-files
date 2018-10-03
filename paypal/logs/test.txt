@@ -1,0 +1,33 @@
+transaction_subject  
+payment_date  13:20:12 Sep 14, 2018 PDT
+txn_type  web_accept
+last_name  buyer
+residence_country  US
+item_name  Test
+payment_gross  11.08
+mc_currency  USD
+business  rfreyes-facilitator@outlook.com
+payment_type  instant
+protection_eligibility  Eligible
+verify_sign  Aa59uhewgyn78hUcRR-uuQfrZ6ApAkaEhUTiB45vfCvZm8e0UWRW3azQ
+payer_status  verified
+test_ipn  1
+tax  0.08
+payer_email  rfreyes-buyer@outlook.com
+txn_id  8WM67623K65465217
+quantity  1
+receiver_email  rfreyes-facilitator@outlook.com
+first_name  test
+payer_id  69S6CR84K65UU
+receiver_id  2SQZ5TK45CN34
+item_number  1
+payment_status  Completed
+payment_fee  0.62
+mc_fee  0.62
+shipping  1.00
+mc_gross  11.08
+custom  
+charset  windows-1252
+notify_version  3.9
+ipn_track_id  f5bd95e2d6629
+VERIFIED: All Verified!

@@ -1,0 +1,10 @@
+<?php
+	if($_SERVER['REQUEST_METHOD'] != 'POST'){
+		header(string:'Location: index.php');
+		exit();
+	}
+
+	$ch = curl_init();
+	curl_setopt($ch, option:CURLOPT_URL, value: 'https://ipnpb.sandbox.paypal.com/cgi-bin/webscr');
+	curl_setopt($ch, option:CURLOPT_URL, value: curl_setopt($ch, option:CURLOPT_URL, value: 'https://ipnpb.sandbox.paypal.com/cgi-bin/webscr');$pb.sandbox.paypal.com/cgi-bin/webscr');
+?>

@@ -1,0 +1,58 @@
+$(document).ready( function() {
+    	
+var file = $("#imgInp");
+function validateType(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password
+
+
+	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		   var input = $(this).parents('.input-group').find(':text'),
+                        log = label ;
+			
+		    if( input.length ) {
+		        input.val(log);
+		     } else {
+		        if( log ) alert(log);
+		     }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		       var fileTypes = ['jpg', 'jpeg', 'png'];
+
+			
+
+			reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+			var name = this.files[0]["name"];
+			var extension = name.substr(name.lastIndexOf('.')+1).toLowerCase();
+                        //$('#fileType123').val(extension);
+                    
+                        var allowedExtension = ["jpg", "jpeg", "png"];
+                        if(!(allowedExtension.indexOf(extension)>-1)){
+                                //$('#fileType123').val("invalid");
+                	   $('#fileType123').val("in");      	
+		          $("#imgInp").val('');
+                        }
+		    readURL(this);
+		}); 	
+});

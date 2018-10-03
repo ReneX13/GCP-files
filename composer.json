@@ -1,0 +1,13 @@
+
+{
+    "require": {
+        "propel/propel": "~2.0@dev",
+	"rych/phpass": "3.0.*@beta"
+    },
+    
+    "autoload": {
+      "classmap": [
+        "models/"
+      ]
+    }
+}

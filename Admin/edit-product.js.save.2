@@ -1,0 +1,151 @@
+$(document).ready( function() {
+	$("#AlertFileType").hide();
+	$("#AlertFileName").hide();
+	$("#AlertFileCurrentName").hide();
+	$("#imgInp").attr('disabled','disabled');
+	$("#fileName").attr('disabled','disabled');
+
+	originalFileName = $.trim($("#fileName").val());
+ 	originalFileURL = $("#img-upload").attr("src");
+
+	//$("#imgInp").trigger("change");
+	//$("#check_e").val(originalFileURL);	
+	$("#changeImg").change(function (){
+	    if($("#changeImg").is(':checked')){
+		$("#imgInp").removeAttr('disabled');
+        	$("#fileName").removeAttr('disabled');
+		$("#img-upload").removeAttr('src');
+		$("#fileName").val('');
+		$("#AlertFileCurrentName").show();
+	    }else{
+		$("#AlertFileType").hide();
+        	$("#AlertFileName").hide();
+		$("#AlertFileCurrentName").hide();
+		$("#imgInp").val('');
+		$("#imgInp").attr('disabled','disabled');
+                $("#fileName").attr('disabled','disabled');
+		$("#img-upload").attr('src', originalFileURL);
+		$("#fileName").val(originalFileName);
+	    }		
+	});
+
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		   var input = $(this).parents('.input-group').find(':text'),
+                        log = label ;
+			
+		    if( input.length ) {
+		        input.val(log);
+			checkFileExistance($("#fileName").val());
+		     } else {
+		        if( log ) alert(log);
+		     }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		       var fileTypes = ['jpg', 'jpeg', 'png'];
+
+			
+
+			reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		function checkFileExistance(str){
+                  url = "./images/" + $("#fileName").val();
+                 
+                   isUrlExists(url, function(status){
+			//$("#check_e").val(originalFileName+"   "+str);
+                        if(status === 200 && (str != originalFileName)){
+                            //file was found
+                            //$("#check_e").val(originalFileName+"   "+str);
+                            $("#AlertFileName").show();
+                            document.querySelector("#fileName").setCustomValidity("file name Exists!");
+                        }
+                         else if(status === 404){
+                         // 404 not found
+                            
+		           //$("#check_e").val("not found");
+                           // $("#fileName").setCustomValidity("File Name Exists!");
+                           document.querySelector("#fileName").setCustomValidity(''); 
+                           $("#AlertFileName").hide();
+			   $("#check_e").val("in   here");
+			   
+                 	}
+		    });
+		}
+		function checkFileExt(str){
+			//name = $("#imgInp").files[0]["name"];
+			//$("#check_e").val("in   "+ext);
+                        ext = str.substr(name.lastIndexOf('.')+1).toLowerCase(); 
+			$("#check_e").val("in   "+ $("#imgInp").files[0]);
+			if(isset($("#imgInp").files[0])){
+				name = $("#imgInp").files[0]["name"];
+                        	extension = name.substr(name.lastIndexOf('.')+1).toLowerCase();	
+				$("#check_e").val(ext + "   "+ extension);
+				if(ext != extension){
+				       document.querySelector("#fileName").setCustomValidity('File extension not correct! Correct type:' +extension); 
+				}else{
+				     document.querySelector("#fileName").setCustomValidity(''); 
+				}
+			}				
+		}
+               
+
+	  	$("#fileName").change(function(){
+		   //$("#fileName").val($.trim($("#fileName").val()));
+		   //$("#check_e").val($("#fileName").val());
+		   checkFileExistance($("#fileName").val());
+		});
+
+		$("#imgInp").change(function(){
+			//$("#check_e").val("in");
+			name = this.files[0]["name"];
+			extension = name.substr(name.lastIndexOf('.')+1).toLowerCase();
+                        //$('#fileType123').val(extension);
+                    
+                        $allowedExtension = ["jpg", "jpeg", "png"];
+			
+
+                        if(!($allowedExtension.indexOf(extension)>-1)){
+                                //$('#fileType123').val("invalid");
+                	       	
+		         $("#imgInp").val('');
+			 $("#AlertFileType").show();
+                        }
+		
+			else{
+				readURL(this);
+				//checkFileExistance($("#fileName").val());
+				$("#AlertFileType").hide();
+				$("#AlertFileName").hide();
+			}
+		   
+		}); 	
+		function isUrlExists(url, cb){
+			jQuery.ajax({
+				url:      url,
+				dataType: 'text',
+				type:     'GET',
+				complete:  function(xhr){
+		 		if(typeof cb === 'function')
+					cb.apply(this, [xhr.status]);
+				}
+			});
+		}
+		
+				    
+});

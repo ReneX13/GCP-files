@@ -1,0 +1,10 @@
+propel:
+    database:
+        connections:
+            default:
+                adapter: mysql
+                dsn: mysql:host=localhost;port=3306;dbname=RenexShop
+                user: root
+                password: PQi6HDteK3iWyB
+                settings:
+                    charset: utf8
