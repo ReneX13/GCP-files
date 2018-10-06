@@ -1,0 +1,19 @@
+.jumbotron{
+        #background-color: rgba(0,0,0,0);
+}
+.cus_title{
+        margin-top: 10px;
+        margin-bottom: 25px;
+}
+.custom-img{
+	height : 16rem;
+	max-width : 16rem;
+		
+}
+.nav-item-custom{
+  margin-right : 20px;
+}
+.custom-row{
+ margin-bottom : 20px;
+ margin-top : 20px;
+}

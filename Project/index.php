@@ -1,23 +1,4 @@
-
-
-<?php 
-// invoke autoload to get access to the propel generated models
-require_once '../vendor/autoload.php';
-
-// require the config file that propel init created with your db connection information
-require_once '../generated-conf/config.php';
-
-$logged = false;
-$id = -1;
-
-session_start();
-//echo $_SESSION['id'];
-if(!empty($_SESSION)){
-        $logged = true;
-        $id = $_SESSION['id'];
-}
-
-?>
+<?php require_once 'Controllers/index-controller.php' ?>
 
 <html>
 <head>
@@ -25,98 +6,18 @@ if(!empty($_SESSION)){
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	
+    <link rel="stylesheet" href="Css/index.css">
 </head>
-<style>
-.jumbotron{
-	#background-color: rgba(0,0,0,0);
-}
-.cus_title{
-	margin-top: 10px;
-	margin-bottom: 25px;
-}
-
-
-
-</style>
+<style></style>
 <body>
-
-<nav class="navbar navbar-inverse">
-
-<div class="row text-center cus_title"> 
-     <h1>ReneX13's Shop</h1>  
-</div>
- 
- <div class="container" >
-
-<div class="row"> 
-   <ul class="nav navbar-nav navbar">
-      <li class="active"><a href="">Home</a></li>
-      <li><a href="movies.php"><span class="glyphicon glyphicon-cd"></span> Movies</a></li>
-      <li><a href="shopping-cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>
-    </ul>
-	<?php if($logged){
-	        echo "<form class='navbar-form navbar-right' action='logout.php'>
-                        <button type='submit' class='btn btn-default'>Log Out</button>
-                        </form>"; 
-	      } else{
-		echo "<div class='navbar-right navbar-text'>
-        			<small>or, <br> <a href='register.php'>Sign Up</a>!</small>
-   			</div>
-			<form class='navbar-form navbar-right' action='login.php'>
-      			<button type='submit' class='btn btn-default'>Login</button>
-   			</form>";
-	      }
-	?>
- 
-    <form class="navbar-form navbar-right" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search" name="search">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
- </div>
-</div>
-</nav>
-
-
-
-
-<div class="container"> 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 600px; margin: 0 auto;">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="git/Images/Ad_1.png" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="git/Images/Ad_2.png" style="width:100%;">
-      </div>
-    
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-</div>
+<?php require_once 'Templates/navbar.php'; ?>
+<?php require_once 'Templates/carousel.php'; ?>   
 
 <!--
 <?php $p = ProductsQuery::create()->findOne(); ?>

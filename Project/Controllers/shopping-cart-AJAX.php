@@ -1,0 +1,82 @@
+<?php 
+    // invoke autoload to get access to the propel generated models
+    require_once '../../vendor/autoload.php';
+
+    // require the config file that propel init created with your db connection information
+    require_once '../../generated-conf/config.php';
+
+    $logged = false;
+    $id = -1;
+
+    session_start();
+    //echo $_SESSION['id'];
+    if(!empty($_SESSION)){
+        $logged = true;
+        $id = $_SESSION['id'];
+
+        if($_REQUEST["type"] == 0){
+            $item = CartQuery::create()->filterByUserId($id)->findOneByProductId($_REQUEST["q"]);
+            if(!empty($item)){
+                if($item->getAmount() >1){
+                    $item->setAmount($item->getAmount()-1);
+                    $item->save();
+                    foreach($_SESSION["cart"] as $key=>$val){
+                        if($val["id"] == $_REQUEST["q"]){
+                            $_SESSION["cart"][$key]["amount"] --; 
+                        }
+                    }
+                    $product= ProductsQuery::create()->findOneById($_REQUEST["q"]);
+                    echo $product->getPrice();
+                }
+                else{
+                    echo 0;
+                }
+            }  
+            else{
+                echo 0;
+            }
+        }  
+
+        else if($_REQUEST["type"] == 1){
+            $item = CartQuery::create()->filterByUserId($id)->findOneByProductId($_REQUEST["q"]);
+            if(!empty($item)){
+                if($item->getAmount() < 100){
+                    $item->setAmount($item->getAmount()+1);
+                    $item->save();
+                    foreach($_SESSION["cart"] as $key=>$val){
+                        if($val["id"] == $_REQUEST["q"]){
+                            $_SESSION["cart"][$key]["amount"] ++; 
+                        }
+                    }
+                    $product= ProductsQuery::create()->findOneById($_REQUEST["q"]);
+                    echo $product->getPrice();
+                }
+                else{
+                    echo 0;
+                }
+            }  
+            else{
+                echo 0;
+            }
+        }
+
+        else if($_REQUEST["type"]==2){
+            $item = CartQuery::create()->filterByUserId($id)->findOneByProductId($_REQUEST["q"]);
+            if(!empty($item)){
+                $amount = $item->getAmount();
+                foreach($_SESSION["cart"] as $key=>$val){
+                    if($val["id"] == $_REQUEST["q"]){
+                        unset($_SESSION["cart"][$key]); 
+                    }
+                }
+                $item->delete();
+                $product= ProductsQuery::create()->findOneById($_REQUEST["q"]);
+                echo $product->getPrice()*$amount;
+            }  
+            else{
+                echo 0;
+            } 
+        }
+    }
+
+?>
