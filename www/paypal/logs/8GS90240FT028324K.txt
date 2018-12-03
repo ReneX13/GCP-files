@@ -1,0 +1,46 @@
+mc_gross  12.97
+protection_eligibility  Eligible
+address_status  confirmed
+item_number1  
+payer_id  69S6CR84K65UU
+tax  0.99
+address_street  1 Main St
+payment_date  17:32:13 Nov 12, 2018 PST
+payment_status  Completed
+charset  windows-1252
+address_zip  95131
+first_name  test
+mc_fee  0.68
+address_country_code  US
+address_name  test buyer
+notify_version  3.9
+custom  13
+payer_status  verified
+business  rfreyes-facilitator@outlook.com
+address_country  United States
+num_cart_items  1
+address_city  San Jose
+verify_sign  APZlNqNccJH1hpTY3LdXJKu5Fsw0AhqexS95SKUaG1TabBVNBWe3ESjI
+payer_email  rfreyes-buyer@outlook.com
+txn_id  8GS90240FT028324K
+payment_type  instant
+last_name  buyer
+address_state  CA
+item_name1  Aladdin
+receiver_email  rfreyes-facilitator@outlook.com
+payment_fee  0.68
+shipping_discount  0.00
+quantity1  2
+insurance_amount  0.00
+receiver_id  2SQZ5TK45CN34
+txn_type  cart
+discount  0.00
+mc_gross_1  11.98
+mc_currency  USD
+residence_country  US
+test_ipn  1
+shipping_method  Default
+transaction_subject  
+payment_gross  12.97
+ipn_track_id  362739f2752b8
+VERIFIED: All Verified!

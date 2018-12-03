@@ -1,0 +1,45 @@
+<?php 
+$user = UsersQuery::create()->findOneById($_SESSION["id"]);
+$mail = MailingaddressQuery::create()->findOneByUserId($_SESSION["id"]);
+?>
+<div class ="container" id = "user-configuration-form">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form enctype="multipart/form-data" method = "POST" id="form1" action ="../Controllers/edit-perform.php?id=<?php echo $_GET["id"];  ?>">
+                <div class = "row">
+                    <div class ="col-md-4">
+		    	<fieldset><legend>User Information</legend>
+				First Name
+				<input type = 'text' class ='form-control' value = '<?php echo $user->getFirstName() ;?>' disabled/>
+				Last Name
+				<input type = 'text' class ='form-control' value = '<?php echo $user->getLastName() ;?>' disabled/>
+				Email Name
+                                <input type = 'Email' class ='form-control' value = '<?php echo $user->getEmail() ;?>' disabled/>
+			</fieldset>
+		    </div>
+		    <div class ="col-sm-2">
+			
+                    </div>
+                    <div class ="col-sm-4">
+		    		First Name
+                                <input type = 'text' class ='form-control' value = '<?php echo $user->getFirstName() ;?>' disabled/>
+                                Last Name
+                                <input type = 'text' class ='form-control' value = '<?php echo $user->getLastName() ;?>' disabled/>
+                                Email Name
+                                <input type = 'text' class ='form-control' value = '<?php echo $user->getEmail() ;?>' disabled/>
+                        </fieldset>
+		    </div>    
+                </div>
+            </form>     
+            <form action = "../" id="form2" method ="POST")></form>
+            <div class ="row custom-row">
+                <div class ="col-md-4">
+                    <button type="submit" form="form1" class="btn btn-default">Submit</button>
+                    <button type="submit" form="form2" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

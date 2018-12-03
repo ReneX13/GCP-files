@@ -1,0 +1,17 @@
+.jumbotron{
+	#background-color: rgba(0,0,0,0);
+}
+.cus_title{
+	margin-top: 10px;
+	margin-bottom: 25px;
+}
+
+#carousel-container{
+    padding-top : 20px;
+}
+.nav-item-custom{
+  margin-right : 20px;
+}
+body{
+    
+}

@@ -1,0 +1,50 @@
+mc_gross  11.78
+protection_eligibility  Eligible
+address_status  confirmed
+item_number1  
+item_number2  
+payer_id  69S6CR84K65UU
+tax  0.90
+address_street  1 Main St
+payment_date  12:10:03 Oct 29, 2018 PDT
+payment_status  Completed
+charset  windows-1252
+address_zip  95131
+first_name  test
+mc_fee  0.64
+address_country_code  US
+address_name  test buyer
+notify_version  3.9
+custom  13
+payer_status  verified
+business  rfreyes-facilitator@outlook.com
+address_country  United States
+num_cart_items  2
+address_city  San Jose
+verify_sign  AHh5swFJLb6SNGa0r1Cr9VTK3.ymA8VY9eecFh5cw5czCdbcZXZDQyAe
+payer_email  rfreyes-buyer@outlook.com
+txn_id  9VJ86524UY1622052
+payment_type  instant
+last_name  buyer
+address_state  CA
+item_name1  Blade 2
+receiver_email  rfreyes-facilitator@outlook.com
+item_name2  Dragon Ball Z - Broly the Legendary Super Sayain
+payment_fee  0.64
+shipping_discount  0.00
+quantity1  1
+insurance_amount  0.00
+quantity2  1
+receiver_id  2SQZ5TK45CN34
+txn_type  cart
+discount  0.00
+mc_gross_1  4.55
+mc_currency  USD
+mc_gross_2  6.33
+residence_country  US
+test_ipn  1
+shipping_method  Default
+transaction_subject  
+payment_gross  11.78
+ipn_track_id  775448b219720
+VERIFIED: All Verified!
